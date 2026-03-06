@@ -36,9 +36,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.deltaTime);
         if (Application.platform == RuntimePlatform.WindowsPlayer || Application.isEditor)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame)
             {
                 rb.linearVelocityY = 0f;
                 rb.AddForce(Vector2.up * flyForce, ForceMode2D.Impulse);

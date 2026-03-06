@@ -100,7 +100,7 @@ public class GameLogic : MonoBehaviour
         {
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
             {
-                if (Keyboard.current.spaceKey.isPressed)
+                if (Keyboard.current.spaceKey.isPressed || Mouse.current.leftButton.isPressed)
                 {
                     Time.timeScale = 1;
                     SceneManager.LoadScene("Level");
@@ -167,6 +167,7 @@ public class GameLogic : MonoBehaviour
             yield return new WaitForSecondsRealtime(5f);
             _TimesToRepeat--;
         }
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().size = new Vector2(0.4f, 0.4f);
         GameObject.FindGameObjectWithTag("PlayerTexture").gameObject.transform.localScale = new Vector2(1f, 1f);
     }
